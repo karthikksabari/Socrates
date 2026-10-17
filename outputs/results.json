@@ -1,0 +1,492 @@
+{
+  "mode": "cifar10",
+  "device": "cuda",
+  "res": 64,
+  "epochs": 5,
+  "seed": 42,
+  "data": {
+    "train": 27000,
+    "val": 3000,
+    "test_known": 6000,
+    "test_unknown": 4000,
+    "noise": 1000,
+    "known": [
+      "airplane",
+      "automobile",
+      "bird",
+      "cat",
+      "dog",
+      "ship"
+    ],
+    "unknown": [
+      "deer",
+      "frog",
+      "horse",
+      "truck"
+    ]
+  },
+  "training": [
+    {
+      "epoch": 1,
+      "train_loss": 0.4684576307427827,
+      "val_loss": 0.2911510467529297,
+      "val_acc": 0.8926666666666667
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2590759725296667,
+      "val_loss": 0.26874637603759766,
+      "val_acc": 0.9063333333333333
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.18363578455143065,
+      "val_loss": 0.21409519016742706,
+      "val_acc": 0.923
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.13255045787206193,
+      "val_loss": 0.20574794709682465,
+      "val_acc": 0.9286666666666666
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.10349083958432008,
+      "val_loss": 0.20255708694458008,
+      "val_acc": 0.9283333333333333
+    }
+  ],
+  "classification": {
+    "accuracy": 0.9301666666666667,
+    "per_class_recall": {
+      "airplane": 0.948,
+      "automobile": 0.987,
+      "bird": 0.943,
+      "cat": 0.869,
+      "dog": 0.865,
+      "ship": 0.969
+    },
+    "confusion": [
+      [
+        948,
+        8,
+        15,
+        4,
+        1,
+        24
+      ],
+      [
+        7,
+        987,
+        0,
+        0,
+        0,
+        6
+      ],
+      [
+        17,
+        1,
+        943,
+        22,
+        16,
+        1
+      ],
+      [
+        7,
+        4,
+        30,
+        869,
+        88,
+        2
+      ],
+      [
+        3,
+        1,
+        14,
+        117,
+        865,
+        0
+      ],
+      [
+        17,
+        9,
+        3,
+        2,
+        0,
+        969
+      ]
+    ]
+  },
+  "calibration": {
+    "T": 1.2883986234664917,
+    "ece_before": 0.020377236872911493,
+    "ece_after": 0.0075422390947739604,
+    "nll_before": 0.1986253708600998,
+    "nll_after": 0.1913638561964035,
+    "mean_conf_before": 0.9492483735084534,
+    "mean_conf_after": 0.9302595853805542,
+    "accuracy": 0.9301666666666667
+  },
+  "ood_near": {
+    "MSP (baseline)": {
+      "AUROC": 0.7873049375,
+      "AUPR_out": 0.671760362063594,
+      "FPR95": 0.793
+    },
+    "MSP + temp. scaling": {
+      "AUROC": 0.790864125,
+      "AUPR_out": 0.6814300967952646,
+      "FPR95": 0.7755
+    },
+    "Negative entropy": {
+      "AUROC": 0.7944305833333334,
+      "AUPR_out": 0.698022077448191,
+      "FPR95": 0.72525
+    },
+    "Max logit": {
+      "AUROC": 0.8026287708333333,
+      "AUPR_out": 0.71018612065317,
+      "FPR95": 0.717
+    },
+    "Energy": {
+      "AUROC": 0.8027465833333334,
+      "AUPR_out": 0.7104433022577074,
+      "FPR95": 0.718
+    },
+    "Mahalanobis (features)": {
+      "AUROC": 0.6179941666666666,
+      "AUPR_out": 0.5025466202776534,
+      "FPR95": 0.89525
+    },
+    "MC dropout (neg. entropy)": {
+      "AUROC": 0.7948634583333334,
+      "AUPR_out": 0.6988330506995108,
+      "FPR95": 0.72325
+    }
+  },
+  "ood_far": {
+    "MSP (baseline)": {
+      "AUROC": 0.9889356666666667,
+      "AUPR_out": 0.9054011083988569,
+      "FPR95": 0.02
+    },
+    "MSP + temp. scaling": {
+      "AUROC": 0.9919974999999999,
+      "AUPR_out": 0.9190752535649833,
+      "FPR95": 0.007
+    },
+    "Negative entropy": {
+      "AUROC": 0.9947066666666666,
+      "AUPR_out": 0.9184432171232608,
+      "FPR95": 0.0
+    },
+    "Max logit": {
+      "AUROC": 0.9927346666666667,
+      "AUPR_out": 0.8934331435372513,
+      "FPR95": 0.0
+    },
+    "Energy": {
+      "AUROC": 0.9900760833333333,
+      "AUPR_out": 0.8540458011329518,
+      "FPR95": 0.0
+    },
+    "Mahalanobis (features)": {
+      "AUROC": 0.9542916666666668,
+      "AUPR_out": 0.5983278914357003,
+      "FPR95": 0.325
+    },
+    "MC dropout (neg. entropy)": {
+      "AUROC": 0.9947017499999999,
+      "AUPR_out": 0.9179971981137209,
+      "FPR95": 0.0
+    }
+  },
+  "handling": {
+    "No handling (always answer)": {
+      "known_kept": 1.0,
+      "acc_on_kept": 0.9301666666666667,
+      "wrong_known_caught": 0.0,
+      "unknown_rejected": 0.0,
+      "noise_rejected": 0.0
+    },
+    "MSP (baseline)": {
+      "known_kept": 0.9478333333333333,
+      "acc_on_kept": 0.9528749780200457,
+      "wrong_known_caught": 0.360381861575179,
+      "unknown_rejected": 0.21625000000000005,
+      "noise_rejected": 0.982
+    },
+    "MSP + temp. scaling": {
+      "known_kept": 0.95,
+      "acc_on_kept": 0.9521052631578948,
+      "wrong_known_caught": 0.34844868735083534,
+      "unknown_rejected": 0.22450000000000003,
+      "noise_rejected": 0.993
+    },
+    "Negative entropy": {
+      "known_kept": 0.9446666666666667,
+      "acc_on_kept": 0.9534227240649259,
+      "wrong_known_caught": 0.36992840095465396,
+      "unknown_rejected": 0.28725,
+      "noise_rejected": 1.0
+    },
+    "Max logit": {
+      "known_kept": 0.949,
+      "acc_on_kept": 0.9469617140850017,
+      "wrong_known_caught": 0.27923627684964203,
+      "unknown_rejected": 0.28800000000000003,
+      "noise_rejected": 1.0
+    },
+    "Energy": {
+      "known_kept": 0.951,
+      "acc_on_kept": 0.9444444444444444,
+      "wrong_known_caught": 0.24343675417661098,
+      "unknown_rejected": 0.27925,
+      "noise_rejected": 1.0
+    },
+    "Mahalanobis (features)": {
+      "known_kept": 0.956,
+      "acc_on_kept": 0.9297419804741981,
+      "wrong_known_caught": 0.03818615751789976,
+      "unknown_rejected": 0.09524999999999995,
+      "noise_rejected": 0.567
+    },
+    "MC dropout (neg. entropy)": {
+      "known_kept": 0.9445,
+      "acc_on_kept": 0.9532380448208929,
+      "wrong_known_caught": 0.36754176610978523,
+      "unknown_rejected": 0.29174999999999995,
+      "noise_rejected": 1.0
+    }
+  },
+  "thresholds_val_known_p5": {
+    "MSP (baseline)": 0.6611493825912476,
+    "MSP + temp. scaling": 0.5994223952293396,
+    "Negative entropy": -0.6963359117507935,
+    "Max logit": 3.99613356590271,
+    "Energy": 4.27170467376709,
+    "Mahalanobis (features)": -912.1715165847562,
+    "MC dropout (neg. entropy)": -0.7039008140563965
+  },
+  "per_unknown_class": {
+    "deer": {
+      "n": 1000,
+      "accepted_MSP": 0.722,
+      "accepted_Energy": 0.705,
+      "accepted_Mahalanobis": 0.96,
+      "mostly_called": "bird (40%)"
+    },
+    "frog": {
+      "n": 1000,
+      "accepted_MSP": 0.771,
+      "accepted_Energy": 0.697,
+      "accepted_Mahalanobis": 0.957,
+      "mostly_called": "cat (56%)"
+    },
+    "horse": {
+      "n": 1000,
+      "accepted_MSP": 0.771,
+      "accepted_Energy": 0.686,
+      "accepted_Mahalanobis": 0.796,
+      "mostly_called": "dog (65%)"
+    },
+    "truck": {
+      "n": 1000,
+      "accepted_MSP": 0.871,
+      "accepted_Energy": 0.795,
+      "accepted_Mahalanobis": 0.906,
+      "mostly_called": "automobile (79%)"
+    }
+  },
+  "known_rejection": {
+    "airplane": {
+      "recall": 0.948,
+      "rejected_MSP": 0.038,
+      "rejected_Energy": 0.054
+    },
+    "automobile": {
+      "recall": 0.987,
+      "rejected_MSP": 0.009,
+      "rejected_Energy": 0.015
+    },
+    "bird": {
+      "recall": 0.943,
+      "rejected_MSP": 0.053,
+      "rejected_Energy": 0.031
+    },
+    "cat": {
+      "recall": 0.869,
+      "rejected_MSP": 0.104,
+      "rejected_Energy": 0.098
+    },
+    "dog": {
+      "recall": 0.865,
+      "rejected_MSP": 0.087,
+      "rejected_Energy": 0.05
+    },
+    "ship": {
+      "recall": 0.969,
+      "rejected_MSP": 0.022,
+      "rejected_Energy": 0.046
+    }
+  },
+  "robustness": {
+    "clean": {
+      "accuracy": 0.9301666666666667,
+      "ECE": 0.020377236872911493,
+      "ECE_temp_scaled": 0.0075422390947739604,
+      "mean_conf": 0.9492483735084534,
+      "known_rejected_MSP": 0.05216666666666667,
+      "AUROC_MSP": 0.7873049375,
+      "known_rejected_Energy": 0.049,
+      "AUROC_Energy": 0.8027465833333334,
+      "known_rejected_Mahalanobis": 0.044,
+      "AUROC_Mahalanobis": 0.6179941666666666
+    },
+    "gaussian_noise 0.05": {
+      "accuracy": 0.839,
+      "ECE": 0.06384686942895254,
+      "ECE_temp_scaled": 0.030125216419498158,
+      "mean_conf": 0.9022431373596191,
+      "known_rejected_MSP": 0.1105,
+      "AUROC_MSP": 0.7382756666666667,
+      "known_rejected_Energy": 0.14533333333333334,
+      "AUROC_Energy": 0.7270390416666667,
+      "known_rejected_Mahalanobis": 0.041666666666666664,
+      "AUROC_Mahalanobis": 0.5824679583333333
+    },
+    "gaussian_noise 0.1": {
+      "accuracy": 0.5791666666666667,
+      "ECE": 0.2055112677017848,
+      "ECE_temp_scaled": 0.1510798634340366,
+      "mean_conf": 0.7844855189323425,
+      "known_rejected_MSP": 0.2798333333333333,
+      "AUROC_MSP": 0.6250093958333334,
+      "known_rejected_Energy": 0.372,
+      "AUROC_Energy": 0.6054868333333333,
+      "known_rejected_Mahalanobis": 0.06266666666666666,
+      "AUROC_Mahalanobis": 0.5533392083333333
+    },
+    "gaussian_noise 0.2": {
+      "accuracy": 0.30983333333333335,
+      "ECE": 0.3280945140719413,
+      "ECE_temp_scaled": 0.2648122078726689,
+      "mean_conf": 0.6379278302192688,
+      "known_rejected_MSP": 0.592,
+      "AUROC_MSP": 0.5212847708333334,
+      "known_rejected_Energy": 0.7408333333333333,
+      "AUROC_Energy": 0.5249732500000001,
+      "known_rejected_Mahalanobis": 0.2145,
+      "AUROC_Mahalanobis": 0.530197625
+    },
+    "blur 0.8": {
+      "accuracy": 0.8468333333333333,
+      "ECE": 0.06237368245422837,
+      "ECE_temp_scaled": 0.03133703087766964,
+      "mean_conf": 0.9073949456214905,
+      "known_rejected_MSP": 0.10566666666666667,
+      "AUROC_MSP": 0.7551942708333333,
+      "known_rejected_Energy": 0.12066666666666667,
+      "AUROC_Energy": 0.7543013333333334,
+      "known_rejected_Mahalanobis": 0.04,
+      "AUROC_Mahalanobis": 0.552502
+    },
+    "blur 1.5": {
+      "accuracy": 0.5195,
+      "ECE": 0.2784571425790588,
+      "ECE_temp_scaled": 0.22166363409658274,
+      "mean_conf": 0.797957181930542,
+      "known_rejected_MSP": 0.2615,
+      "AUROC_MSP": 0.5837817916666667,
+      "known_rejected_Energy": 0.3845,
+      "AUROC_Energy": 0.5365399166666667,
+      "known_rejected_Mahalanobis": 0.04683333333333333,
+      "AUROC_Mahalanobis": 0.5057944999999999
+    },
+    "blur 2.5": {
+      "accuracy": 0.355,
+      "ECE": 0.37457766817510124,
+      "ECE_temp_scaled": 0.30985281848410773,
+      "mean_conf": 0.7295777201652527,
+      "known_rejected_MSP": 0.37316666666666665,
+      "AUROC_MSP": 0.48863499999999993,
+      "known_rejected_Energy": 0.5881666666666666,
+      "AUROC_Energy": 0.4347915,
+      "known_rejected_Mahalanobis": 0.051333333333333335,
+      "AUROC_Mahalanobis": 0.43456058333333336
+    },
+    "low_res 2": {
+      "accuracy": 0.6086666666666667,
+      "ECE": 0.24712654192745687,
+      "ECE_temp_scaled": 0.20432243341207507,
+      "mean_conf": 0.8557748198509216,
+      "known_rejected_MSP": 0.18016666666666667,
+      "AUROC_MSP": 0.6789815833333332,
+      "known_rejected_Energy": 0.30616666666666664,
+      "AUROC_Energy": 0.7214976041666668,
+      "known_rejected_Mahalanobis": 0.15166666666666667,
+      "AUROC_Mahalanobis": 0.550646125
+    },
+    "low_res 4": {
+      "accuracy": 0.36283333333333334,
+      "ECE": 0.47255852474520604,
+      "ECE_temp_scaled": 0.4198250867724419,
+      "mean_conf": 0.8351382613182068,
+      "known_rejected_MSP": 0.20166666666666666,
+      "AUROC_MSP": 0.6006810416666667,
+      "known_rejected_Energy": 0.412,
+      "AUROC_Energy": 0.6337856875,
+      "known_rejected_Mahalanobis": 0.41233333333333333,
+      "AUROC_Mahalanobis": 0.5384659583333333
+    },
+    "low_res 8": {
+      "accuracy": 0.31,
+      "ECE": 0.4513997041384379,
+      "ECE_temp_scaled": 0.3861734736859799,
+      "mean_conf": 0.7613997459411621,
+      "known_rejected_MSP": 0.328,
+      "AUROC_MSP": 0.608679,
+      "known_rejected_Energy": 0.701,
+      "AUROC_Energy": 0.6250701041666668,
+      "known_rejected_Mahalanobis": 0.359,
+      "AUROC_Mahalanobis": 0.5529994583333333
+    },
+    "darken 0.6": {
+      "accuracy": 0.9103333333333333,
+      "ECE": 0.0246396460632483,
+      "ECE_temp_scaled": 0.007858818272749615,
+      "mean_conf": 0.9346593618392944,
+      "known_rejected_MSP": 0.06766666666666667,
+      "AUROC_MSP": 0.767102,
+      "known_rejected_Energy": 0.07966666666666666,
+      "AUROC_Energy": 0.7820211458333333,
+      "known_rejected_Mahalanobis": 0.024166666666666666,
+      "AUROC_Mahalanobis": 0.6111065
+    },
+    "darken 0.4": {
+      "accuracy": 0.8781666666666667,
+      "ECE": 0.03366242859264211,
+      "ECE_temp_scaled": 0.009929863149921118,
+      "mean_conf": 0.9091733694076538,
+      "known_rejected_MSP": 0.098,
+      "AUROC_MSP": 0.7440300000000001,
+      "known_rejected_Energy": 0.145,
+      "AUROC_Energy": 0.7579522083333333,
+      "known_rejected_Mahalanobis": 0.014166666666666666,
+      "AUROC_Mahalanobis": 0.5880945000000001
+    },
+    "darken 0.2": {
+      "accuracy": 0.68,
+      "ECE": 0.13103665697077913,
+      "ECE_temp_scaled": 0.07394053402543067,
+      "mean_conf": 0.8108738660812378,
+      "known_rejected_MSP": 0.2415,
+      "AUROC_MSP": 0.6414470625,
+      "known_rejected_Energy": 0.4723333333333333,
+      "AUROC_Energy": 0.6569898750000001,
+      "known_rejected_Mahalanobis": 0.005666666666666667,
+      "AUROC_Mahalanobis": 0.5118446666666666
+    }
+  }
+}
