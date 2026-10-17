@@ -1,4 +1,5 @@
-# The Model That Doesn't Know: Open-Set Image Classification & Uncertainty Estimation
+#SOCRATES
+#Anything but Larping
 
 An image classification and Out-of-Distribution (OOD) detection system built around an ImageNet-pretrained **ResNet-18** fine-tuned on **6 known categories** (`airplane`, `automobile`, `bird`, `cat`, `dog`, `ship`), equipped with **7 uncertainty estimation methods**, **post-hoc temperature calibration**, **corruption robustness stress-testing**, and **visual explainability (t-SNE + Grad-CAM)**.
 
